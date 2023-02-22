@@ -1,1 +1,1 @@
-Jalankan perintah composer dump-autoload terlebih dahulu
+Jalankan perintah <b>composer dump-autoload</b> terlebih dahulu pada terminal.
