@@ -145,7 +145,7 @@ class TransaksiProsesController extends Controller
         
         return response()->json([
             'success' => true,
-            'message' => 'Detail Data User',
+            'message' => 'Data berhasil Disimpan',
             'data' => $transaksi
         ]);
         
