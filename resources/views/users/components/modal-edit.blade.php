@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="name" class="control-label">Password</label>
+                    <label for="name" class="control-label">Password Baru</label>
                     <input type="text" class="form-control" id="password_edit">
                     <div class="alert alert-danger mt-2 d-none" role="alert" id="alert-password-edit"></div>
                 </div>
@@ -71,7 +71,6 @@
                 $('#nama_edit').val(response.data.nama);
                 $('#no_wa_edit').val(response.data.no_wa);
                 $('#email_edit').val(response.data.email);
-                $('#password_edit').val(response.data.password);
                 $('#username_edit').val(response.data.username);
 
                 //open modal

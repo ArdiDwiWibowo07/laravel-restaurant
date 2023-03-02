@@ -19,7 +19,7 @@ class UsersController extends Controller
     {
         $data = Users::paginate(5);
         $user = Auth::user();
-        return view('users.index', compact('data','user'));
+        return view('users.index', compact('data', 'user'));
     }
 
     /**
@@ -46,7 +46,7 @@ class UsersController extends Controller
         $validator = Validator::make($request->all(), [
             'nama' => 'required',
             'email' => 'email:rfc,dns|required',
-            'password' =>'required',
+            'password' => 'required',
             'no_wa' => 'required|max:12',
             'username' => 'required'
         ]);
@@ -58,9 +58,9 @@ class UsersController extends Controller
         }
 
         $user = Users::create([
-            'nama' =>$request->nama,
+            'nama' => $request->nama,
             'email' => $request->email,
-            'password' => Hash::make( $request->password),
+            'password' => Hash::make($request->password),
             'no_wa' => $request->no_wa,
             'username' => $request->username
         ]);
@@ -111,7 +111,6 @@ class UsersController extends Controller
         $validator = Validator::make($request->all(), [
             'nama' => 'required',
             'email' => 'email:rfc,dns|required',
-            'password' =>'required',
             'no_wa' => 'required|max:12',
             'username' => 'required'
         ]);
@@ -121,15 +120,27 @@ class UsersController extends Controller
             return response()->json(['error' => $validator->errors()]);
         }
 
-        $user->update([
-            'nama' => $request->nama,
-            'email' => $request->email,
-            'password' => Hash::make( $request->password),
-            'no_wa' => $request->no_wa,
-            'username' => $request->username
-        ]);
 
-        
+        if ($request->password == null) {
+            $user->update([
+                'nama' => $request->nama,
+                'email' => $request->email,
+                'no_wa' => $request->no_wa,
+                'username' => $request->username
+            ]);
+        } else {
+            $user->update([
+                'nama' => $request->nama,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+                'no_wa' => $request->no_wa,
+                'username' => $request->username
+            ]);
+        }
+
+
+
+
         return response()->json([
             'success' => true,
             'message' => 'Data Berhasil Diupdate',
@@ -146,7 +157,7 @@ class UsersController extends Controller
     public function destroy($id)
     {
         $deleted = Users::find($id)->delete();
-        if($deleted){
+        if ($deleted) {
             return true;
         }
     }
