@@ -4,16 +4,12 @@
 - Laravel 9
 - Xamp version 3.3.0
 - Mysql
-## Install 
-- Import database yaitu caffe.sql
-- Jalankan pada terminal perintah **composer dump-autoload**
-- Jalankan perintah php **artisan serve**
 
 ## Fitur Aplikasi
 - Dapat mengetahui jumlah menu, rata-rata penjualan, penjualan hari ini.
 - Dapat mengetahui Grafik penjualan per bulan.
 - Dapat mengetahui 3 menu favorit
-- Dapat mencetak laporan penjualan dan invoice
+- Dapat mencetak laporan penjualan dan invoice dalam bentuk PDF
 - Dapat mengelola menu, user
 
 ## Screenshoot
